@@ -28,7 +28,8 @@ export default function ({ navigation, route }) {
     const [kirim, setKirim] = useState({
         tanggal_lahir: moment().format('YYYY-MM-DD'),
         jenis_kelamin: 'Laki-laki',
-        fid_user: ''
+        fid_user: '',
+        orangtua: ''
     })
 
 
@@ -107,6 +108,12 @@ export default function ({ navigation, route }) {
                         { label: 'Laki-laki', value: 'Laki-laki' },
                         { label: 'Perempuan', value: 'Perempuan' },
                     ]} />
+                    <MyGap jarak={5} />
+                    <MyInput label="Nama orang Tua" value={kirim.orangtua} onChangeText={x => setKirim({
+                        ...kirim,
+                        orangtua: x
+                    })} />
+
                     <MyGap jarak={10} />
                     <MyButton title="Update Data Anak" onPress={sendServer} />
                 </>}

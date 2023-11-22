@@ -28,7 +28,8 @@ export default function PageAnakPOS({ navigation, route }) {
             showMessage({
                 type: 'success',
                 message: 'Kunjungan Posyandu berhasil di simpan !'
-            })
+            });
+            navigation.goBack();
         })
     }
 

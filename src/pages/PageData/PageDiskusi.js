@@ -81,7 +81,7 @@ export default function ({ navigation, route }) {
                 // justifyContent: 'center',
                 padding: 20,
             }}>
-                <FlatList data={data} numColumns={1} renderItem={({ item }) => {
+                <FlatList showsVerticalScrollIndicator={false} data={data} numColumns={1} renderItem={({ item }) => {
                     return (
                         <View style={{
                             flex: 1,
@@ -103,34 +103,36 @@ export default function ({ navigation, route }) {
                                 color: colors.border
                             }}>{moment(item.tanggal).format('dddd, DD MMMM YYYY')} Pukul {item.jam}</Text>
 
-                            <TouchableNativeFeedback onPress={() => {
-                                Alert.alert(MYAPP, 'Apakah kamu mau hapus ini ?', [
-                                    { text: "BATAL" },
-                                    {
-                                        text: 'HAPUS',
-                                        onPress: () => {
-                                            getData('user').then(u => {
-                                                axios.post(apiURL + 'catatan_delete', {
-                                                    id: item.id,
+                            {user.id === item.fid_user &&
+                                <TouchableNativeFeedback onPress={() => {
+                                    Alert.alert(MYAPP, 'Apakah kamu mau hapus ini ?', [
+                                        { text: "BATAL" },
+                                        {
+                                            text: 'HAPUS',
+                                            onPress: () => {
+                                                getData('user').then(u => {
+                                                    axios.post(apiURL + 'catatan_delete', {
+                                                        id: item.id,
 
-                                                }).then(res => {
-                                                    console.log(res.data);
-                                                    __getTransaction()
+                                                    }).then(res => {
+                                                        console.log(res.data);
+                                                        __getTransaction()
+                                                    })
                                                 })
-                                            })
+                                            }
                                         }
-                                    }
-                                ])
-                            }}>
-                                <View style={{
-                                    position: 'absolute',
-                                    top: -10,
-                                    right: -10,
-                                    zIndex: 99
+                                    ])
                                 }}>
-                                    <Icon type='ionicon' name='trash' color={colors.danger} size={30} />
-                                </View>
-                            </TouchableNativeFeedback>
+                                    <View style={{
+                                        position: 'absolute',
+                                        top: -10,
+                                        right: -10,
+                                        zIndex: 99
+                                    }}>
+                                        <Icon type='ionicon' name='trash' color={colors.danger} size={30} />
+                                    </View>
+                                </TouchableNativeFeedback>
+                            }
 
                             <View style={{
                                 padding: 10,

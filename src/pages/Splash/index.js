@@ -49,7 +49,7 @@ export default function Splash({ navigation }) {
         marginTop: 20,
         fontFamily: fonts.normal,
         fontSize: 20,
-      }}>Aplikasi Edukasi Anak</Text>
+      }}>Aplikasi Kesehatan Gizi Anak</Text>
 
       <View style={{
         marginTop: 10,

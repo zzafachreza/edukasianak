@@ -88,6 +88,7 @@ export default function ({ navigation, route }) {
 
 
         Alert.alert(`Nilai kamu : ${nilai}`, 'Terima kasih sudah mengerjakan soal !');
+        navigation.goBack();
 
 
 

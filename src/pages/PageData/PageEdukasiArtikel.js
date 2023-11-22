@@ -1,4 +1,4 @@
-import { FlatList, Image, SafeAreaView, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
+import { FlatList, Image, Linking, SafeAreaView, StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 import React, { useEffect, useState } from 'react'
 import { colors, fonts, windowHeight, windowWidth } from '../../utils'
 import { Icon } from 'react-native-elements';
@@ -22,7 +22,9 @@ export default function ({ navigation, route }) {
 
     const __renderItem = ({ item }) => {
         return (
-            <TouchableWithoutFeedback onPress={() => navigation.navigate('PageEdukasiArtikelDetail', item)}>
+            <TouchableWithoutFeedback onPress={() => {
+                Linking.openURL(item.link_artikel)
+            }}>
                 <View style={{
                     borderWidth: 1,
                     marginVertical: 10,
