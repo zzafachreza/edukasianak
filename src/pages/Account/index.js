@@ -173,7 +173,7 @@ export default function ({ navigation, route }) {
                                     fontFamily: fonts.primary[600],
                                     fontSize: windowWidth / 22,
                                     color: colors.black
-                                }}>Halo,</Text>
+                                }}>Nama Pengguna,</Text>
                                 <Text style={{
                                     fontFamily: fonts.primary[400],
                                     fontSize: windowWidth / 22,
@@ -186,12 +186,7 @@ export default function ({ navigation, route }) {
                                 }}>{user.level}</Text>
                             </View>
                         </View>
-                        <View style={{ padding: 10, }}>
 
-                            <MyList label="Phone" value={user.telepon} />
-
-
-                        </View>
                         {/* data detail */}
                     </View>
                 </>

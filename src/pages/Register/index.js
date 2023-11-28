@@ -53,7 +53,6 @@ export default function Register({ navigation }) {
     const [data, setData] = useState({
         api_token: api_token,
         nama_lengkap: '',
-        telepon: '',
         password: '',
         repassword: '',
 
@@ -64,7 +63,7 @@ export default function Register({ navigation }) {
         if (
             data.nama_lengkap.length === 0 &&
             data.username.length === 0 &&
-            data.telepon.length === 0 &&
+
             data.password.length === 0
 
         ) {
@@ -77,11 +76,7 @@ export default function Register({ navigation }) {
             });
         }
 
-        else if (data.telepon.length === 0) {
-            showMessage({
-                message: 'Masukan nomor telepon',
-            });
-        } else if (data.password.length === 0) {
+        else if (data.password.length === 0) {
             showMessage({
                 message: 'Masukan kata sandi kamu',
             });
@@ -153,8 +148,8 @@ export default function Register({ navigation }) {
                     borderRadius: 20,
                 }}>
                     <MyInput
-                        placeholder="Masukan nama lengkap"
-                        label="Nama Lengkap"
+                        placeholder="Masukan nama pengguna"
+                        label="Nama Pengguna"
                         iconname="person-outline"
                         value={data.nama_lengkap}
                         onChangeText={value =>
@@ -165,22 +160,7 @@ export default function Register({ navigation }) {
                         }
                     />
 
-                    <MyGap jarak={5} />
 
-
-                    <MyInput
-                        placeholder="Masukan nomor telepon"
-                        label="Telepon"
-                        iconname="call-outline"
-                        keyboardType="phone-pad"
-                        value={data.telepon}
-                        onChangeText={value =>
-                            setData({
-                                ...data,
-                                telepon: value,
-                            })
-                        }
-                    />
 
 
 
@@ -204,7 +184,7 @@ export default function Register({ navigation }) {
                             })
                         }
                     />
-                    <MyGap jarak={5} />
+                    <MyGap jarak={10} />
                     <MyInput
                         borderColor={sama ? colors.border : colors.danger}
                         borderWidth={sama ? 1 : 1}

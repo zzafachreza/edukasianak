@@ -11,7 +11,7 @@ export default function Login({ navigation }) {
 
   const [kirim, setKirim] = useState({
     api_token: api_token,
-    telepon: null,
+    nama_lengkap: null,
     password: null
   });
   const [loading, setLoading] = useState(false);
@@ -25,10 +25,10 @@ export default function Login({ navigation }) {
   const masuk = () => {
 
 
-    if (kirim.telepon == null && kirim.password == null) {
-      Alert.alert(MYAPP, 'telepon dan Password tidak boleh kosong !');
-    } else if (kirim.telepon == null) {
-      Alert.alert(MYAPP, 'telepon tidak boleh kosong !');
+    if (kirim.nama_lengkap == null && kirim.password == null) {
+      Alert.alert(MYAPP, 'Nama Pengguna dan Password tidak boleh kosong !');
+    } else if (kirim.nama_lengkap == null) {
+      Alert.alert(MYAPP, 'Nama Pengguna tidak boleh kosong !');
     } else if (kirim.password == null) {
       Alert.alert(MYAPP, 'Password tidak boleh kosong !');
     } else {
@@ -96,11 +96,11 @@ export default function Login({ navigation }) {
           padding: 20, flex: 1, backgroundColor: colors.white, margin: 20,
           borderRadius: 10,
         }}>
-          <MyInput keyboardType="phone-pad" label="Telepon" onChangeText={val => setKirim({
+          <MyInput label="Nama Pengguna" onChangeText={val => setKirim({
             ...kirim,
-            telepon: val
+            nama_lengkap: val
           })}
-            iconname="at" placeholder="Masukan telepon" />
+            iconname="person" placeholder="Masukan nama pengguna" />
           <MyGap jarak={20} />
           <MyInput
             onChangeText={val => setKirim({

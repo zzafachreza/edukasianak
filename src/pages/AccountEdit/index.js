@@ -107,8 +107,6 @@ export default function AccountEdit({ navigation, route }) {
                 <MyGap jarak={10} />
 
 
-                <MyInput label="No. Handphone" iconname="logo-whatsapp" keyboardType="phone-pad" value={kirim.telepon} onChangeText={x => setKirim({ ...kirim, telepon: x })} />
-                <MyGap jarak={10} />
 
 
 
